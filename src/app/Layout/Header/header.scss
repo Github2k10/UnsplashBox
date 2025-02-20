@@ -1,0 +1,19 @@
+.header{
+    position: fixed;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.header .btn{
+    border: none;
+    text-align: center;
+    color: #6C727F;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Be Vietnam Pro';
+    background-color: transparent;
+
+    &.active {
+        color: #121826;
+        background-color: #E5E7EB;
+    }
+}
