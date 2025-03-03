@@ -1,0 +1,9 @@
+.container {
+    background-image: url('src/assets/img/hero-image.png');
+    height: calc(100vh - 70px);
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    background-position-y: center;
+    background-position-x: center;
+}
