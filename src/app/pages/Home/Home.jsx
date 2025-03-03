@@ -7,7 +7,7 @@ function Home() {
     return (
         <>
             <Header />
-            <div className="container"></div>
+            <div className="container m-0 home-img"></div>
         </>
     );
 }
