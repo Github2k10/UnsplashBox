@@ -1,9 +1,39 @@
 .home-img {
     background-image: url('src/assets/img/hero-image.png');
     height: calc(100vh - 70px);
-    background-size: 100% 90%;
+    background-size: cover;
     background-repeat: no-repeat;
     max-width: 100%;
     background-position-y: center;
     background-position-x: center;
+
+}
+
+.card-body{
+    max-width: fit-content;
+    max-height: fit-content;
+    text-align: center;
+    min-width: 40%;
+    min-height: 50%;
+
+    h1{
+        font-weight: 600;
+    }
+}
+
+.search {
+    font-size: 14px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    input {
+        border: none;
+        outline: none;
+        width: 100%;
+        color: #121826;
+
+        &::placeholder {
+            color: #6C727F;
+        }
+    }
 }
