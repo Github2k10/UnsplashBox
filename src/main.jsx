@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <Search/>,
     children: [
       {
-        path: ":photos",
+        path: ":search",
         element: <Search/>
       }
     ]
