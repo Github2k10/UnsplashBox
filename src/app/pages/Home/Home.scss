@@ -1,22 +1,25 @@
-.home-img {
-    background-image: url('src/assets/img/hero-image.png');
+.home {
     height: calc(100vh - 70px);
-    background-size: cover;
+}
+
+.home-img {
+    background-image: url('/src/assets/img/hero-image.png');
+    background-size: contain;
     background-repeat: no-repeat;
     max-width: 100%;
     background-position-y: center;
     background-position-x: center;
-
+    height: 90%;
 }
 
-.card-body{
+.card-body {
     max-width: fit-content;
     max-height: fit-content;
     text-align: center;
     min-width: 40%;
     min-height: 50%;
 
-    h1{
+    h1 {
         font-weight: 600;
     }
 }
@@ -35,5 +38,51 @@
         &::placeholder {
             color: #6C727F;
         }
+    }
+}
+
+/* Media Queries */
+
+/* For small screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .home {
+        height: calc(100vh - 60px); 
+    }
+
+    .home-img {
+        background-size: cover; 
+        height: 70%; 
+    }
+
+    .card-body {
+        min-width: 80%; 
+        min-height: 60%; 
+    }
+
+    .search {
+        font-size: 12px; 
+        padding: 12px; 
+    }
+}
+
+/* For extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .home {
+        height: calc(100vh - 50px); 
+    }
+
+    .home-img {
+        background-size: cover; 
+        height: 60%; 
+    }
+
+    .card-body {
+        min-width: 90%; 
+        min-height: 70%; 
+    }
+
+    .search {
+        font-size: 10px;
+        padding: 10px;
     }
 }
