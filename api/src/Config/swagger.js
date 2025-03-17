@@ -4,11 +4,11 @@ const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerDefinition = {
   openapi: '3.0.0',
   info: {
-    title: 'Express API with Swagger',
+    title: 'UnsplashBox API',
     version: '1.0.0',
-    description: 'A simple CRUD API application with Swagger documentation',
+    description: 'API documentation for UnsplashBox',
     contact: {
-      name: 'Your Name',
+      name: 'Ankit Kumar',
       url: 'https://yourwebsite.com',
       email: 'your-email@example.com'
     }
@@ -20,10 +20,9 @@ const swaggerDefinition = {
   ],
 };
 
-// Options for the swagger docs
 const swaggerOptions = {
   'definition': swaggerDefinition,
-  apis: ['./src/routes/*.js'], // Adjust the path as per your project structure
+  apis: ['./src/routes/*.js'], 
 };
 
 // Initialize swagger-jsdoc
