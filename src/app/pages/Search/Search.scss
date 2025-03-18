@@ -49,6 +49,32 @@
     }
 }
 
+.btn-load-more {
+  transition-duration: 400ms;
+
+  &:hover, &:focus {
+    color: #000;
+  }
+
+  &:focus::after, &:hover::after {
+    width: 100%;
+    left: 0%;
+  }
+
+  &::after {
+    content: "";
+    pointer-events: none;
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #000;
+    transition-duration: 400ms;
+    transition-property: width, left;
+  }
+}
+
 
 /* Media Queries */
 

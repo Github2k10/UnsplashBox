@@ -1,9 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const unsplashRoutes = require('./src/routes/unsplashRoutes');
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Routes
 app.use('/unsplash', unsplashRoutes);
