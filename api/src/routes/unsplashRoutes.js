@@ -1,8 +1,8 @@
 const express = require('express');
-const { getUnsplashPhotos } = require('../controllers/unsplashController');
-
 const router = express.Router();
 
+
+const { getUnsplashPhotos } = require('../controllers/unsplashController');
 
 
 /**

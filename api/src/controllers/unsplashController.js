@@ -46,3 +46,4 @@ function filterResponse(data){
 }
 
 module.exports = { getUnsplashPhotos };
+

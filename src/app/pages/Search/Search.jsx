@@ -72,7 +72,7 @@ function Search() {
         {data &&
           data.map((item, index) => (
             <div key={index} className="image">
-              <img src={item.urls.raw} alt={`image-${index}`} />
+              <img src={item.urls.raw + "w=600&auto=format&fit=crop&q=60"} alt={`image-${index}`} loading="lazy"/>
             </div>
           ))}
       </div>
