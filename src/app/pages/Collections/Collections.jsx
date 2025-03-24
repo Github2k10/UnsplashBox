@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 
@@ -12,6 +13,7 @@ function Collections() {
     let [images, setImages] = useState([]);
     let [modal, setModal] = useState(false);
     let [collectionName, setCollectionName] = useState("");
+    let [isInvalid, setIsInvalid] = useState(false);
 
     let fetchCollections = async () => {
         try {
@@ -25,7 +27,14 @@ function Collections() {
         }
     };
 
-    let saveCollection = async (collection_name) => {
+    let saveCollection = async (event) => {
+        event.preventDefault();
+        const collection_name = collectionName;
+
+        if(collection_name.length == 0){
+          setIsInvalid(true);
+          return
+        }
         try {
             axios.post("http://localhost:8000/collections/saveCollection", {collection_name: collection_name}).then((res) => {
                 if (!res.error){
@@ -53,6 +62,7 @@ function Collections() {
     const closeModal = (event) => {
         event.preventDefault();
         setModal(false);
+        setIsInvalid(false);
     };
 
     return (
@@ -73,7 +83,7 @@ function Collections() {
             <div className="card-body collections-container m-5 px-5 mt-0">
               {images &&
                 images.map((item, index) => (
-                  <div key={item.name + + "_" + index} className="collection">
+                  <Link key={item.name + + "_" + index} className="collection" to={`/collections/${item._id}`}>
                     <div>
                       <div className="mb-3">
                         {item.images.length != 0 && (
@@ -92,7 +102,7 @@ function Collections() {
                       <h5 className="mb-1">{item.name}</h5>
                       <p className="mb-0">{item.total_images} Photos</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               <div className="collection-dummy d-flex justify-content-center align-items-center" onClick={openModal}>
                 <svg width="32" height="32" viewBox="0 0 16 16" fill="none">
@@ -112,14 +122,17 @@ function Collections() {
             <div className="card card-body d-flex p-4">
               <h5>Add Collection</h5>
               <input
-                className="form-control my-3"
+                className={isInvalid ? 'form-control my-3 invalid' : 'form-control my-3'}
                 type="text"
                 placeholder="Enter collection name..."
                 value={collectionName}
-                onChange={(e) => setCollectionName(e.target.value)}
+                onChange={(e) => {
+                  setIsInvalid(false);
+                  setCollectionName(e.target.value)
+                }}
               />
               <div className="d-flex justify-content-center gap-2 mt-1">
-                <button className="btn btn-primary px-4 py-2" onClick={() => saveCollection(collectionName)}>Save</button>
+                <button className="btn btn-primary px-4 py-2" onClick={(event) => saveCollection(event)}>Save</button>
                 <button className="btn btn-secondary px-4 py-2" onClick={closeModal}>Cancel</button>
               </div>
             </div>

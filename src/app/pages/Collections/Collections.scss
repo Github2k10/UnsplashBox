@@ -108,6 +108,14 @@
         font-size: 15px;
         padding: 0.85rem;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        &.invalid {
+            border-color: red;  
+        }
+
+        &:focus {
+            border-color: #dee2e6;  
+        }
     }
 
     .btn {

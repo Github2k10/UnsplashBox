@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import Home from "./app/pages/Home/Home.jsx"
 import Collections from "./app/pages/Collections/Collections.jsx"
+import Collection from './app/pages/Collections/Collection/Collection.jsx';
 import Search from './app/pages/Search/Search.jsx';
 
 import './index.css'
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/collections",
     element: <Collections/>,
+  },
+  {
+    path: "/collections/:collection_id",
+    element: <Collection/>
   },
   {
     path: "/search",
