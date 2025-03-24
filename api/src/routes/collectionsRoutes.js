@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const { getCollectionsList } = require("../controllers/collectionsController");
+const { getCollectionsList, addNewCollections } = require("../controllers/collectionsController");
 
 
 /**
@@ -30,6 +30,36 @@ const { getCollectionsList } = require("../controllers/collectionsController");
  *                   type: string
  */
 router.get("/getList", getCollectionsList);
+
+
+/**
+ * @swagger
+ * /collections/saveCollection:
+ *   post:
+ *     tags:
+ *       - Collections
+ *     summary: Add new Collections
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               collection_name:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: New Collections added successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ */
+router.post("/saveCollection", addNewCollections);
 
 
 module.exports = router;

@@ -8,7 +8,8 @@ const collectionsSchema = new mongoose.Schema({
     image_ids: {
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'images',
-        required: false
+        required: false,
+        default: [],
     },
     total_images: {
         type: Number,

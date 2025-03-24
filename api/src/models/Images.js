@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const imagesSchema = new mongoose.Schema({
     image_url: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     collection_id: {
         type: [mongoose.Schema.Types.ObjectId],
         ref: 'collections',
-        required: false
+        required: false,
+        default: [],
     }
 }, { timestamps: true });
 

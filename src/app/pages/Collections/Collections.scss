@@ -75,11 +75,67 @@
         flex-direction: column;
         background-color: #e6e7eb;
         cursor: pointer;
+        min-width: 400px;
+        min-height: 300px;
 
         p {
             font-size: 24px;
             font-weight: 500;
             color: #6C727F;
         }
+    }
+}
+
+.add-collection {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    h5 {
+        font-weight: 600;
+    }
+
+    .card-body {
+        background-color: white;
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .form-control {
+        font-size: 15px;
+        padding: 0.85rem;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    .btn {
+        font-size: 15px;
+        padding: 0.85rem;
+        border: none;
+        height: fit-content;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .btn-primary {
+        background-color: #e6e7eb;
+        color: #121826;
+    }
+
+    .btn-primary:hover {
+        background-color: #6C727F;
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        color: black;
+    }
+
+    .btn-secondary:hover {
+        background-color: red;
+        color: white;
     }
 }
