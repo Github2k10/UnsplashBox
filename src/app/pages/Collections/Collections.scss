@@ -31,10 +31,16 @@
 
     .collection {
         cursor: pointer;
+        text-decoration: none !important;
+        
         div {
             border-radius: 0.3em;
             overflow: hidden;
             text-align: left;
+
+            h5 {
+                color: #121826;
+            }
 
             p {
                 font-size: 14px;

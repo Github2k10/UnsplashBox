@@ -70,4 +70,51 @@ const addNewCollections = async (req, res) => {
 };
 
 
-module.exports = { getCollectionsList, addNewCollections };
+const getCollectionsImages = async (req, res) => {
+  try{
+    const { collection_id } = req.params;
+    const page = req.query.page || 1;
+    const limit = req.query.limit || 10;
+    const startIndex = (page - 1) * limit;
+
+    const collectionsList = await collections.aggregate([
+      { $match: { _id: collection_id } },
+      {
+        $lookup: {
+          from: "images",
+          localField: "image_ids",
+          foreignField: "_id",
+          as: "images",
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          total_images: 1,
+          images: {
+            $map: {
+              input: "$images",
+              as: "image",
+              in: "$$image.image_url",
+            },
+          },
+        },
+      },
+      {
+        $skip: startIndex,
+      },
+      {
+        $limit: limit
+      }
+    ]);
+
+    return res.status(200).json({collectionsList});
+  } catch(error){
+    console.log("error => ", error)
+    res.status(500).json({ message: 'Error adding new Collections.', error });
+  }
+};
+
+
+module.exports = { getCollectionsList, addNewCollections, getCollectionsImages };

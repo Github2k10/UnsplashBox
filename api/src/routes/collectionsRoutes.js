@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const { getCollectionsList, addNewCollections } = require("../controllers/collectionsController");
+const { getCollectionsList, addNewCollections, getCollectionsImages } = require("../controllers/collectionsController");
 
 
 /**
@@ -60,6 +60,9 @@ router.get("/getList", getCollectionsList);
  *                   type: string
  */
 router.post("/saveCollection", addNewCollections);
+
+
+router.get("/:collection_id", getCollectionsImages);
 
 
 module.exports = router;
